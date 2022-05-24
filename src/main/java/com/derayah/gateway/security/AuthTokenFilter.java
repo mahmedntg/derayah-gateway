@@ -31,14 +31,10 @@ import java.io.IOException;
 @Slf4j
 public class AuthTokenFilter extends OncePerRequestFilter {
 
-    private JwtUtils jwtUtils;
-    private UserService userDetailsService;
-
     @Autowired
-    public AuthTokenFilter(final JwtUtils jwtUtils, final UserService userDetailsService) {
-        this.jwtUtils = jwtUtils;
-        this.userDetailsService = userDetailsService;
-    }
+    private JwtUtils jwtUtils;
+    @Autowired
+    private UserService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

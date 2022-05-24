@@ -34,7 +34,7 @@ public class MongoUserDetails implements UserDetails {
         List<GrantedAuthority> authorities = user.getRoles().stream()
             .map(role -> new SimpleGrantedAuthority(role.toString())).collect(Collectors.toList());
         this.username = user.getUsername();
-        this.password = new BCryptPasswordEncoder().encode(user.getPassword());
+        this.password = user.getPassword();
         this.active = 1;
         this.isLocked = false;
         this.isExpired = false;
